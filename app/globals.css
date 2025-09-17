@@ -1,0 +1,208 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens for coffee shop theme with cappuccino background */
+  --background: #d8cfc4; /* Cappuccino color */
+  --foreground: #4b3d35; /* Dark coffee bean */
+  --card: #ffffff; /* White for product cards */
+  --card-foreground: #4b3d35; /* Dark coffee bean for card text */
+  --popover: #f9f6f2; /* Light cream for popovers */
+  --popover-foreground: #4b3d35; /* Dark coffee bean for popover text */
+  --primary: #a45a4a; /* Rusty red for buttons */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #f9f6f2; /* Light cream for secondary elements */
+  --secondary-foreground: #4b3d35; /* Dark coffee bean for secondary text */
+  --muted: #f9f6f2; /* Light cream for muted text */
+  --muted-foreground: #6b5b54; /* Lighter coffee for muted text */
+  --accent: #a45a4a; /* Rusty red for accents */
+  --accent-foreground: #ffffff; /* White text on accent elements */
+  --destructive: #dc2626; /* Red for destructive actions */
+  --destructive-foreground: #ffffff; /* White text on destructive buttons */
+  --border: #c4b5a0; /* Lighter coffee for borders */
+  --input: #ffffff; /* White for input fields */
+  --ring: #a45a4a; /* Rusty red for focus ring */
+  --color-ripe-coffee-red: #8B2E0F; /* Червоний колір зрілої кави */
+  --color-green-coffee-green: #3A6B35; /* Зелений колір зеленої кави */
+  --chart-1: #d8cfc4;
+  --chart-2: #a45a4a;
+  --chart-3: #4b3d35;
+  --chart-4: #f9f6f2;
+  --chart-5: #ffffff;
+  --radius: 0.5rem;
+  --sidebar: #f9f6f2;
+  --sidebar-foreground: #4b3d35;
+  --sidebar-primary: #d8cfc4;
+  --sidebar-primary-foreground: #4b3d35;
+  --sidebar-accent: #a45a4a;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #c4b5a0;
+  --sidebar-ring: #a45a4a;
+}
+
+.dark {
+  --background: #2d1b14;
+  --foreground: #f9f6f2;
+  --card: #3d2b1f;
+  --card-foreground: #f9f6f2;
+  --popover: #3d2b1f;
+  --popover-foreground: #f9f6f2;
+  --primary: #a45a4a;
+  --primary-foreground: #ffffff;
+  --secondary: #4b3d35;
+  --secondary-foreground: #f9f6f2;
+  --muted: #4b3d35;
+  --muted-foreground: #c4b5a0;
+  --accent: #a45a4a;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #4b3d35;
+  --input: #3d2b1f;
+  --ring: #a45a4a;
+  --color-ripe-coffee-red: #8B2E0F; /* Червоний колір зрілої кави */
+  --color-green-coffee-green: #3A6B35; /* Зелений колір зеленої кави */
+  --chart-1: #a45a4a;
+  --chart-2: #d8cfc4;
+  --chart-3: #f9f6f2;
+  --chart-4: #4b3d35;
+  --chart-5: #c4b5a0;
+  --sidebar: #2d1b14;
+  --sidebar-foreground: #f9f6f2;
+  --sidebar-primary: #a45a4a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #4b3d35;
+  --sidebar-accent-foreground: #f9f6f2;
+  --sidebar-border: #4b3d35;
+  --sidebar-ring: #a45a4a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Added coffee bean background pattern */
+    background-image: radial-gradient(circle at 20% 80%, rgba(75, 61, 53, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(75, 61, 53, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, rgba(75, 61, 53, 0.02) 0%, transparent 50%);
+  }
+}
+
+/* Added parallax and animation styles */
+.parallax {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.coffee-bean {
+  position: absolute;
+  width: 8px;
+  height: 12px;
+  background: rgba(75, 61, 53, 0.1);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform: rotate(45deg);
+}
+
+.coffee-bean::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  background: rgba(75, 61, 53, 0.15);
+  transform: translate(-50%, -50%) rotate(-45deg);
+  border-radius: 1px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Added custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
